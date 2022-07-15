@@ -38,5 +38,23 @@ public class BinarySearchTree<K extends Comparable<K>> {
 	public int getSize() {
 		return this.getRecursive(root);
 	}
+	
+	public boolean isPresent(K value) {
+		return search(root, value);
+	}
+
+	public boolean search(Node<K> root, K value) {
+		if (root != null && root.key == value) {
+			return true;
+		}
+		if (root == null) {
+			return false;
+		}
+		if (root.key.compareTo(value) < 0) {
+			return search(root.rightNode, value);
+		} else {
+			return search(root.leftNode, value);
+		}
+	}
 
 }
