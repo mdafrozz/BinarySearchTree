@@ -20,6 +20,7 @@ public class BSTTest {
         myBinaryTree.add(70);
         System.out.println(myBinaryTree.root);
         }
+	
 	@Test
     public void binaryTreeArrayTest() {
 		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
@@ -30,5 +31,21 @@ public class BSTTest {
 		System.out.println(bst.root);
 		System.out.println("Size is : " + bst.getSize());
 		Assert.assertEquals(13, bst.getSize());
+	}
+	
+	@Test
+	public void binaryTreeSearchTest() {
+		BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+		int numberArray[] = { 56, 30, 70, 22, 40, 60, 95, 11, 65, 3, 16, 63, 67, 100 };
+		for (int number : numberArray) {
+			bst.add(number);
+		}
+
+		System.out.println(bst.root);
+		System.out.println("Size is : " + bst.getSize());
+		
+		boolean actualResult = bst.isPresent(63);
+		boolean expectedResult = true;
+		Assert.assertEquals(actualResult, expectedResult);
 	}
 }
