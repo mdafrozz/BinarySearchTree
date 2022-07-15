@@ -29,5 +29,14 @@ public class BinarySearchTree<K extends Comparable<K>> {
 		}
 		return current;
 	}
+	
+	public int getRecursive(Node<K> current) {
+		return current == null ? 0 : 1 + this.getRecursive(current.leftNode) + this.getRecursive(current.rightNode);
+
+	}
+
+	public int getSize() {
+		return this.getRecursive(root);
+	}
 
 }
